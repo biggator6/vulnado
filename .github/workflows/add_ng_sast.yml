@@ -24,7 +24,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package
     - name: NextGen Static Analysis
-      run: ${GITHUB_WORKSPACE}/sl analyze --app ShiftLeftJS --tag branch=${{ github.head_ref }} --java ./target/vulnado-0.0.1-SNAPSHOT.jar
+      run: ${GITHUB_WORKSPACE}/sl analyze --app ShiftLeftJS --remediation-config remediation.yaml --tag branch=${{ github.head_ref }} --java ./target/vulnado-0.0.1-SNAPSHOT.jar
       env:
         SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
